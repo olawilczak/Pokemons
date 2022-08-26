@@ -3,15 +3,22 @@
   background-color: #efc5e4;
   display: flex;
   flex-direction: column;
-  align-items: center;
   
 }
 
 .App-navigation {
+display: flex;
 justify-content: flex-start;
 }
 
 .App-buttons {
+display: flex;
 justify-content: flex-end;
+}
+
+.App-another {
+display: flex;
+justify-content: center;
+align-items: flex-start;
 }
 

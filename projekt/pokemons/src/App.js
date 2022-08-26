@@ -5,8 +5,8 @@ import Login from './Login'
 import Registration from './Registration'
 import Edition from './Edition'
 import LogOut from './LogOut'
-
 import Search from './Search'
+import Arena from './Arena';
 
 
 
@@ -18,6 +18,7 @@ function App() {
         </div>
         <div className="App-buttons">
         <Favourities/>
+        <Arena/>
         <Login/>
         <Registration/>
         <Edition/>
