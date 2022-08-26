@@ -1,0 +1,20 @@
+
+.App {
+  background-color: #efc5e4;
+  flex-direction: row;
+  align-items: flex-start;
+  
+}
+
+.App-navigation {
+flex-direction: row;
+justify-content: flex-start;
+}
+
+.App-buttons {
+flex-direction: row;
+justify-content: flex-end;
+}
+
+
+
