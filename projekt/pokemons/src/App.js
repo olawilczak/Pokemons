@@ -13,6 +13,7 @@ import Search from './Search'
 function App() {
   return (
     <div className="App">
+      <div className="App-head">
       <div className="App-navigation">
       <Logo/>
       </div>
@@ -23,12 +24,10 @@ function App() {
       <Edition/>
       <LogOut/>
       </div>
-      <div className="App-search">
+      </div>
       <Search/>
-      </div>
-      <div className="App-pokemons">
       <Pokemons/>
-      </div>
+      
     </div>
   );
 }
