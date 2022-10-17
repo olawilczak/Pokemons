@@ -8,8 +8,9 @@ function Pokemons() {
         const [state, setState] = useState([])
         const getCharacters = async () => {
           try {
-            const result = await axios.get('https://rickandmortyapi.com/api/character')
+            const result = await axios.get('https://pokeapi.co/api/v2/pokemon')
             setState(result)
+            console.log(result)
           } catch(e) {
             console.error(e)
           }
@@ -27,11 +28,47 @@ function Pokemons() {
           )
         }
 
+        const Height = () => {
+          return (
+            <div>{state.map((c)=>{
+            return (<div>{c.height}</div> )
+            })}</div>
+          )
+        }
+
+        const Experience = () => {
+          return (
+            <div>{state.map((d)=>{
+            return (<div>{d.base_experience}</div> )
+            })}</div>
+          )
+        }
+
+        const Weight = () => {
+          return (
+            <div>{state.data.results.map((e)=>{
+            return (<div>{e.weight}</div> )
+            })}</div>
+          )
+        }
+
+        const Ability = () => {
+          return (
+            <div>{state.data.results.map((f)=>{
+            return (<div>{f.abilities.ability.name}</div> )
+            })}</div>
+          )
+        }
+
     return (
         <>
 <div>
 <Card variant="outlined">
 {Name}
+{Height}
+{Experience}
+{Weight}
+{Ability}
 </Card>
 </div>
         </>
