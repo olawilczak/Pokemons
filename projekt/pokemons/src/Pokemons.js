@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import axios from 'axios'
+import { Card } from '@mui/material';
 
 
 function Pokemons() {
@@ -29,7 +30,9 @@ function Pokemons() {
     return (
         <>
 <div>
+<Card variant="outlined">
 {Name}
+</Card>
 </div>
         </>
     )
