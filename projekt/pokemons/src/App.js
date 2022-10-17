@@ -7,6 +7,7 @@ import Edition from './Edition'
 import LogOut from './LogOut'
 import Search from './Search'
 import Arena from './Arena';
+import Pokemons from './Pokemons';
 
 
 
@@ -26,6 +27,7 @@ function App() {
         </div>
       <div className="App-another">
       <Search/>
+      <Pokemons/>
       </div>
     </div>
   );
