@@ -32,6 +32,7 @@ align-items: center;
 .Pokemons {
   display: flex;
   flex-wrap: wrap;
+  background-color: #efc5e4;
 }
 
 .card {
@@ -55,4 +56,9 @@ align-items: center;
   height: 50px;
   margin: 50px;
   padding: 80px;
+}
+
+.button {
+  background-color: white;
+  border-color: #efc5e4;
 }

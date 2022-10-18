@@ -2,7 +2,7 @@ const Favourities = (()=>{
 
     return (
         <div>
-            <button>Ulubione</button>
+            <button className="button">Ulubione</button>
         </div>
     )
 });

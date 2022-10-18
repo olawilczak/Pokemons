@@ -2,7 +2,7 @@ const Edition = (()=>{
 
     return (
         <div>
-            <button>Edycja</button>
+            <button className="button">Edycja</button>
         </div>
     )
 });

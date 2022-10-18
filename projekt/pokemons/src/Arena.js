@@ -2,7 +2,7 @@ const Arena = (()=>{
 
     return (
         <div>
-            <button>Arena</button>
+            <button className="button">Arena</button>
         </div>
     )
 });

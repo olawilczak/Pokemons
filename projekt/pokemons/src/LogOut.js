@@ -2,7 +2,7 @@ const LogOut = (()=>{
 
     return (
         <div>
-            <button>Wyloguj</button>
+            <button className="button">Wyloguj</button>
         </div>
     )
 });

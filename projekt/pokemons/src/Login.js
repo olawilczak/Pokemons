@@ -2,7 +2,7 @@ const Login = (()=>{
 
     return (
         <div>
-            <button>Logowanie</button>
+            <button className="button">Logowanie</button>
         </div>
     )
 });

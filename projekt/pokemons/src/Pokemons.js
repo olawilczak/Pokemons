@@ -5,13 +5,14 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import PokemonCard from "./PokemonCard";
 
 
 function Pokemons() {
   const [state, setState] = useState([]);
   const getCharacters = async () => {
     try {
-      const result = await axios.get("https://pokeapi.co/api/v2/pokemon");
+      const result = await axios.get("https://pokeapi.co/api/v2/pokemon/?limit=15&offset=1..");
       setState(result.data.results);
       console.log(result);
     } catch (e) {
@@ -72,7 +73,6 @@ function Pokemons() {
     <Card>
       <CardActionArea>
         <CardMedia
-    
         />
         <CardContent>
           <Typography className="Pokemons" gutterBottom variant="h5" component="div">
@@ -82,10 +82,7 @@ function Pokemons() {
           {Experience}
           {Ability}
           {state?.map((b) => {
-            return <div className="card">{b.name[0].toUpperCase()+(b.name).substring(1)}</div>;
-          })}
-          {state?.map((c) => {
-            return <div className="card-pokemons">{c.height}</div>;
+            return <div className="card"><PokemonCard name={b.name[0].toUpperCase()+(b.name).substring(1)} url={b.url} /></div>;
           })}
           </Typography>
         </CardContent>
