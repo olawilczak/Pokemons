@@ -14,6 +14,7 @@ import Pokemons from './Pokemons';
 function App() {
   return (
     <div className="App">
+      <div className='Menu'>
         <div className="App-navigation">
         <Logo/>
         </div>
@@ -25,8 +26,11 @@ function App() {
         <Edition/>
         <LogOut/>
         </div>
+        </div>
       <div className="App-another">
       <Search/>
+      </div>
+      <div className="App-pokemons">
       <Pokemons/>
       </div>
     </div>

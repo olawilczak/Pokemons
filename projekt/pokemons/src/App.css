@@ -6,19 +6,53 @@
   
 }
 
+.Menu {
+  display: flex;
+  justify-content: space-between;
+}
+
 .App-navigation {
 display: flex;
 justify-content: flex-start;
+align-items: flex-start;
 }
 
 .App-buttons {
 display: flex;
 justify-content: flex-end;
+align-items: flex-start;
 }
 
 .App-another {
 display: flex;
 justify-content: center;
-align-items: flex-start;
+align-items: center;
 }
 
+.Pokemons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color:palevioletred;
+  width: 50px;
+  height: 50px;
+  margin: 50px;
+  padding: 80px;
+  
+}
+
+.card-pokemons {
+  display: flex;
+  flex-direction: row;
+  background-color:palevioletred;
+  width: 50px;
+  height: 50px;
+  margin: 50px;
+  padding: 80px;
+}
