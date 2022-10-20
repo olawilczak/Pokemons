@@ -11,11 +11,12 @@ function PokemonCard({name, url}) {
       } catch (e) {
         console.error(e);
       }
-    
     };
     useEffect(() => {
       getCharacters();
     }, []);
+
+    
     return (
         <div>
            <div>{name}</div>

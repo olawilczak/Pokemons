@@ -9,14 +9,23 @@ const Registration = (()=>{
         }
         
         const RegistrationFormula = ()=>{
-        const {values, handleBlur, handleChange, handleSubmit} = useFormik({
+        const {
+            values,
+             errors,
+              touched,
+               isSubmitting,
+                handleBlur,
+                 handleChange,
+                  handleSubmit
+                } = useFormik({
             initialValues: {
                 name: "",
                 email: "",
                 password: "",
                 confirmPassword: "",
             },
-            validationSchema: basicSchema
+            validationSchema: basicSchema,
+            onSubmit,
         });
             return (
             <div>
@@ -30,8 +39,13 @@ const Registration = (()=>{
                 type="name"
                 placeholder="Enter your name"
                 onBlur={handleBlur}
+                className={errors.name && touched.name ? "input-error" : ""}
                 
                 />
+
+                {errors.name && touched.name && (
+                    <p className="error">{errors.name}</p>
+                )}
         
                 <label htmlFor="email">Email</label>
                 <input
@@ -41,9 +55,12 @@ const Registration = (()=>{
                 type="email"
                 placeholder="Enter your email"
                 onBlur={handleBlur}
+                className={errors.email && touched.email ? "input-error" : ""}
                 
                 />
-        
+            {errors.email && touched.email && (
+                    <p className="error">{errors.email}</p>
+                    )}
         <label htmlFor="password">Password</label>
                 <input
                 id="password"
@@ -52,8 +69,12 @@ const Registration = (()=>{
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                className={errors.password && touched.password ? "input-error" : ""}
                
                 />
+                {errors.password && touched.password && (
+                    <p className="error">{errors.password}</p>
+                    )}
         <label htmlFor="confirmPassword">Confirm Password</label>
                 <input
                 id="confirmPassword"
@@ -62,9 +83,14 @@ const Registration = (()=>{
                 value={values.confirmPassword}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                className={errors.confirmPassword && touched.confirmPassword ? "input-error" : ""}
                 
                 />
+                {errors.confirmPassword && touched.confirmPassword && (
+                    <p className="error">{errors.confirmPassword}</p>
+                    )}
               </form>
+              <button type="submit">Submit</button>
               </button>
               </div>
             );

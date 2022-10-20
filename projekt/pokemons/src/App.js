@@ -2,7 +2,7 @@ import './App.css';
 import Logo from './Logo'
 import Favourities from './Favourities'
 import Login from './Login'
-import Registration from './Registration'
+import Registration from './Login'
 import Edition from './Edition'
 import LogOut from './LogOut'
 import Search from './Search'
