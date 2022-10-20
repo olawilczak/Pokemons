@@ -30,6 +30,7 @@ const Registration = (()=>{
             return (
             <div>
              <button className="button"> Rejestracja
+             <div>
               <form onSubmit={handleSubmit} autoComplete="off">
                 <label htmlFor="name">Name</label>
                 <input
@@ -91,6 +92,7 @@ const Registration = (()=>{
                     )}
               </form>
               <button type="submit">Submit</button>
+              </div>
               </button>
               </div>
             );
