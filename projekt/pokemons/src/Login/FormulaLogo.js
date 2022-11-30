@@ -1,8 +1,7 @@
 import {Formik, Form} from "formik";
 import * as Yup from "yup";
-import Login from "./Login";
 
-function Formula() {
+function FormulaLogo() {
     const initialValues = {
         email: '',
         password: '',
@@ -22,16 +21,18 @@ return (
 {
     formik => {
         return <Form>
-            <Login
+            <input
             control = 'input'
             type = 'email'
             label = 'Email'
-            name = 'email'/>
-            <Login
+            name = 'email'
+            />
+            <input
             control = 'input'
             type = 'password'
             label = 'Password'
-            name = 'password' />
+            name = 'password'
+            />
             <button type = 'submit' disabled={!formik.isValid}>Submit</button>
 
         </Form>
@@ -41,4 +42,4 @@ return (
 )
 }
 
-export default Formula;
+export default FormulaLogo;

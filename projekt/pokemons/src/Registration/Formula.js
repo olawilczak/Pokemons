@@ -1,19 +1,19 @@
 import {useFormik} from "formik";
 import { basicSchema } from "./schemas";
 
-const Formula = (()=>{
+const onSubmit = async (values, actions) => {
+    console.log(values);
+    console.log(actions);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    actions.resetForm(); 
+    }
 
-    const onSubmit = async (values, actions) => {
-        await new Promise((resolve)=> setTimeout(resolve, 1000));
-        actions.resetForm(); 
-        }
-        
-        const RegistrationFormula = ()=>{
+const Formula = () => {
+
         const {
             values,
              errors,
               touched,
-               isSubmitting,
                 handleBlur,
                  handleChange,
                   handleSubmit
@@ -94,7 +94,7 @@ const Formula = (()=>{
             );
         }
 
-});
+;
 
 
 export default Formula;
