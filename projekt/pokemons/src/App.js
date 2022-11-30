@@ -2,12 +2,12 @@ import './App.css';
 import Logo from './Logo'
 import Favourities from './Favourities'
 import Login from './Login'
-import Registration from './Registration'
+import Registration from './Registration/Registration'
 import Edition from './Edition'
 import LogOut from './LogOut'
 import Search from './Search'
-import Arena from './Arena';
-import Pokemons from './Pokemons';
+import Arena from './Arena'
+import Pokemons from './Pokemons'
 
 
 
