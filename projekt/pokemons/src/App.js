@@ -1,7 +1,7 @@
 import './App.css';
 import Logo from './Logo'
 import Favourities from './Favourities'
-import Login from './Login'
+import Login from './Login/Login'
 import Registration from './Registration/Registration'
 import Edition from './Edition'
 import LogOut from './LogOut'
