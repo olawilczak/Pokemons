@@ -1,6 +1,7 @@
 import {useFormik} from "formik";
 import { basicSchema } from "./schemas";
 
+
 const onSubmit = async (values, actions) => {
     console.log(values);
     console.log(actions);
@@ -9,6 +10,15 @@ const onSubmit = async (values, actions) => {
     }
 
 const Formula = () => {
+
+    const loginPageStyle = {
+        margin: "32px auto 37px",
+        maxWidth: "530px",
+        background: "#fff",
+        padding: "30px",
+        borderRadius: "10px",
+        boxShadow: "0px 0px 10px 10px rgba(0,0,0,0.15)"
+      };
 
         const {
             values,
@@ -26,9 +36,14 @@ const Formula = () => {
             },
             validationSchema: basicSchema,
             onSubmit,
+
+            handleSubmit: (event) => {
+                event.preventDefault();
+            }
+
         });
             return (
-             <div>
+             <div style = {loginPageStyle}>
               <form onSubmit={handleSubmit} autoComplete="off">
                 <label htmlFor="name">Name</label>
                 <input
@@ -92,9 +107,12 @@ const Formula = () => {
               <button type="submit">Submit</button>
               </div>
             );
+            
         }
 
 ;
+
+
 
 
 export default Formula;

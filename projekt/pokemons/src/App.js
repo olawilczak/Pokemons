@@ -9,6 +9,7 @@ import Search from './Search'
 import Arena from './Arena'
 import Pokemons from './Pokemons'
 import Formula from './Registration/Formula';
+import FormulaLogo from './Login/FormulaLogo';
 
 
 
@@ -25,6 +26,7 @@ function App() {
         <Login/>
         <Registration/>
         <Edition/>
+        <FormulaLogo/>
         <LogOut/>
         </div>
         </div>

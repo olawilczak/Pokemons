@@ -12,9 +12,9 @@ function Pokemons() {
   const [state, setState] = useState([]);
   const getCharacters = async () => {
     try {
-      const result = await axios.get("https://pokeapi.co/api/v2/pokemon/?limit=15&offset=1..");
+      const result = await axios.get("https://pokeapi.co/api/v2/pokemon/?limit=15&offset=0");
       setState(result.data.results);
-      console.log(result);
+      console.log(state);
     } catch (e) {
       console.error(e);
     }
@@ -22,51 +22,7 @@ function Pokemons() {
   useEffect(() => {
     getCharacters();
   }, []);
-  const Name = () => {
-    return (
-      <div>
-        {state.map((b) => {
-          return <div>{b.name}</div>;
-        })}
-      </div>
-    );
-  };
-   const Height = () => {
-     return (
-       <div>
-         {state.map((c) => {
-           return <div>{c.height}</div>;
-         })}
-       </div>
-     );
-   };
-   const Experience = () => {
-     return (
-       <div>
-         {state.map((d) => {
-           return <div>{d.base_experience}</div>;
-         })}
-       </div>
-     );
-   };
-   const Weight = () => {
-     return (
-       <div>
-         {state.data.results.map((e) => {
-           return <div>{e.weight}</div>;
-         })}
-       </div>
-     );
-   };
-   const Ability = () => {
-     return (
-       <div>
-         {state.data.results.map((f) => {
-           return <div>{f.abilities.ability.name}</div>;
-         })}
-       </div>
-     );
-   };
+  
   return (
     <>
       <div>
@@ -76,11 +32,6 @@ function Pokemons() {
         />
         <CardContent>
           <Typography className="Pokemons" gutterBottom variant="h5" component="div">
-          {Name}
-          {Height}
-          {Weight}
-          {Experience}
-          {Ability}
           {state?.map((b) => {
             return <div className="card"><PokemonCard name={b.name[0].toUpperCase()+(b.name).substring(1)} url={b.url} /></div>;
           })}
