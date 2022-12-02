@@ -26,7 +26,6 @@ function App() {
         <Login/>
         <Registration/>
         <Edition/>
-        <FormulaLogo/>
         <LogOut/>
         </div>
         </div>
