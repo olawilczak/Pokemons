@@ -8,11 +8,15 @@ import SearchPage from "./SearchPage";
 
 const Search = () => {
   const [state, setState] = useState([]);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [pokemonName, setPokemonName] = useState([]);
   const [selected, setSelected] = useState(0);
   const [picked, setPicked] = useState(null);
-  const[resultList, setResultList] = useState([]);
+  const [resultList, setResultList] = useState([]);
+
+  const options = {
+    keys: ["name", "code"],
+  };
 
   const getCharacters = async () => {
     try {
@@ -30,11 +34,9 @@ const Search = () => {
   }, []);
 
   useEffect(() => {
-  
+    const fuse = new Fuse(state, options);
 
-    const fuse = new Fuse(state);
-
-    setPokemonName(fuse.search(query).slice(0,6));
+    setPokemonName(fuse.search(query).slice(0, 6));
   }, [query]);
 
   if (picked !== null) {
@@ -69,7 +71,7 @@ const Search = () => {
     }
   };
 
-  console.log(resultList)
+  console.log(resultList);
 
   return (
     <div className="dropdown is-active">
@@ -91,7 +93,7 @@ const Search = () => {
                 <a
                   key={code}
                   className={classnames("dropdown-item", {
-                    'is-active': selected === index,
+                    "is-active": selected === index,
                   })}
                   onMouseEnter={() => setSelected(index)}
                 >
