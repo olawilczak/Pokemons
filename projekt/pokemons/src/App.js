@@ -8,8 +8,7 @@ import LogOut from './LogOut'
 import Search from './Search'
 import Arena from './Arena'
 import Pokemons from './Pokemons'
-import Formula from './Registration/Formula';
-import FormulaLogo from './Login/FormulaLogo';
+
 
 
 

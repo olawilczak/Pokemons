@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+
 function PokemonCard({name, url}) {
     const [state, setState] = useState([]);
     const getCharacters = async () => {
@@ -15,7 +16,7 @@ function PokemonCard({name, url}) {
     useEffect(() => {
       getCharacters();
     }, []);
-
+ 
     if(!state) return null
     return (
         <div>
@@ -23,8 +24,6 @@ function PokemonCard({name, url}) {
            <div>{state.height}</div>
            <div>{state.weight}</div>
            <div>{state.base_experience}</div>
-           <div>{state.abilities[0].ability.name}</div>
-          <img src={state.sprites.other.dream_world.front_default}/>
         </div>
     )
 }

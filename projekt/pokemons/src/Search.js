@@ -1,19 +1,106 @@
 import TextField from "@mui/material/TextField";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios, { Axios } from "axios";
+import Fuse from "fuse.js";
+import "../node_modules/bulma/css/bulma.min.css";
+import classnames from "classnames";
+import SearchPage from "./SearchPage";
 
-const Search = ()=>{
+const Search = () => {
+  const [state, setState] = useState([]);
+  const [query, setQuery] = useState("");
+  const [pokemonName, setPokemonName] = useState([]);
+  const [selected, setSelected] = useState(0);
+  const [picked, setPicked] = useState(null);
 
-  const [change, setChange] = useState('')
+  const getCharacters = async () => {
+    try {
+      const result = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
+      );
+      setState(result.data.results);
+      console.log(state);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+  useEffect(() => {
+    getCharacters();
+  }, []);
 
-  const changeWord = (event) => {
-    setChange(event.target.value)
+  useEffect(() => {
+  
+
+    const fuse = new Fuse(state);
+
+    setPokemonName(fuse.search(query).slice(0,6));
+  }, [query]);
+
+  if (picked !== null) {
+    const currentState = pokemonName[picked];
+    return <SearchPage name={currentState} onBack={() => setPicked(null)} />;
   }
-    return (
-        <div>
-          <TextField id="outlined-basic" label="Search" variant="outlined"
-          onChange={changeWord} />
+
+  const onKeyUp = (event) => {
+    const { key } = event;
+
+    if (key === "ArrowUp") {
+      const newSelected = selected - 1;
+
+      if (newSelected < 0) {
+        return;
+      }
+      setSelected(newSelected);
+    }
+
+    if (key === "ArrowDown") {
+      const newSelected = selected + 1;
+
+      if (newSelected > state.length - 1) {
+        return;
+      }
+
+      setSelected(newSelected);
+    }
+
+    if (key === "Enter") {
+      setPicked(selected);
+    }
+  };
+
+  return (
+    <div className="dropdown is-active">
+      <div className="dropdown-trigger">
+        <TextField
+          id="outlined-basic"
+          label="Search"
+          variant="outlined"
+          value={query}
+          onChange={({ target }) => setQuery(target.value)}
+          onKeyUp={onKeyUp}
+        />
+      </div>
+      {state.length > 0 && (
+        <div className="dropdown-menu">
+          <div className="dropdown-content">
+            {state.map(({ name, code }, index) => {
+              return (
+                <a
+                  key={code}
+                  className={classnames("dropdown-item", {
+                    'is-active': selected === index,
+                  })}
+                  onMouseEnter={() => setSelected(index)}
+                >
+                  {name}
+                </a>
+              );
+            })}
+          </div>
         </div>
-    )
+      )}
+    </div>
+  );
 };
 
 export default Search;

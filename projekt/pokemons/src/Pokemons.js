@@ -12,7 +12,7 @@ function Pokemons() {
   const [state, setState] = useState([]);
   const getCharacters = async () => {
     try {
-      const result = await axios.get("https://pokeapi.co/api/v2/pokemon/?limit=15&offset=0");
+      const result = await axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=15&offset=0`);
       setState(result.data.results);
       console.log(state);
     } catch (e) {
@@ -22,6 +22,8 @@ function Pokemons() {
   useEffect(() => {
     getCharacters();
   }, []);
+
+
   
   return (
     <>
