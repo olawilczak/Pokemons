@@ -8,10 +8,11 @@ import SearchPage from "./SearchPage";
 
 const Search = () => {
   const [state, setState] = useState([]);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const [pokemonName, setPokemonName] = useState([]);
   const [selected, setSelected] = useState(0);
   const [picked, setPicked] = useState(null);
+  const[resultList, setResultList] = useState([]);
 
   const getCharacters = async () => {
     try {
@@ -37,7 +38,7 @@ const Search = () => {
   }, [query]);
 
   if (picked !== null) {
-    const currentState = pokemonName[picked];
+    const currentState = resultList[picked];
     return <SearchPage name={currentState} onBack={() => setPicked(null)} />;
   }
 
@@ -56,7 +57,7 @@ const Search = () => {
     if (key === "ArrowDown") {
       const newSelected = selected + 1;
 
-      if (newSelected > state.length - 1) {
+      if (newSelected > resultList.length - 1) {
         return;
       }
 
@@ -67,6 +68,8 @@ const Search = () => {
       setPicked(selected);
     }
   };
+
+  console.log(resultList)
 
   return (
     <div className="dropdown is-active">
@@ -80,10 +83,10 @@ const Search = () => {
           onKeyUp={onKeyUp}
         />
       </div>
-      {state.length > 0 && (
+      {resultList.length > 0 && (
         <div className="dropdown-menu">
           <div className="dropdown-content">
-            {state.map(({ name, code }, index) => {
+            {resultList?.map(({ name, code }, index) => {
               return (
                 <a
                   key={code}
