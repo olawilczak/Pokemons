@@ -86,7 +86,7 @@ const Search = () => {
       {resultList.length > 0 && (
         <div className="dropdown-menu">
           <div className="dropdown-content">
-            {resultList?.map(({ name, code }, index) => {
+            {resultList.map(({ name, code }, index) => {
               return (
                 <a
                   key={code}
