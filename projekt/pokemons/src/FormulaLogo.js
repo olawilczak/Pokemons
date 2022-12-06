@@ -1,12 +1,14 @@
 import React from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import "./Logo.css"
+
 
 const LoginPage = (props) => {
   const loginPageStyle = {
     margin: "32px auto 37px",
     maxWidth: "530px",
-    background: "#fff",
+    background: "#FFDE00",
     padding: "30px",
     borderRadius: "10px",
     boxShadow: "0px 0px 10px 10px rgba(0,0,0,0.15)"
@@ -16,7 +18,7 @@ const LoginPage = (props) => {
     <React.Fragment>
       <div className="container">
         <div className="login-wrapper" style={loginPageStyle}>
-          <h2>Login Page</h2>
+          <h1 className='logo'>Login Page</h1>
           <Form className="form-container">
             <div className="form-group">
               <label htmlFor="email">Email</label>
