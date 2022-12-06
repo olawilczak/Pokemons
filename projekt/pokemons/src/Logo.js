@@ -1,10 +1,11 @@
-const Logo = (()=>{
+import "./Logo.css"
 
-    return (
-        <div>
-            <h1>Pokedex</h1>
-        </div>
-    )
-});
+const Logo = () => {
+  return (
+    <div>
+      <h1 className="logo">Pokedex</h1>
+    </div>
+  );
+};
 
 export default Logo;

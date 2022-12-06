@@ -1,11 +1,9 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-
-const SearchPage = ({name, onBack}) => {
+const SearchPage = () => {
 return (
-    <div>
-    <button onClick={onBack}></button>
-    <p>{name}</p>
-    </div>
+    <div></div>
 )
 };
 

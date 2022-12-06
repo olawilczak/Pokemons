@@ -1,42 +1,69 @@
-import './App.css';
-import Logo from './Logo'
-import Favourities from './Favourities'
-import Login from './Login/Login'
-import Registration from './Registration/Registration'
-import Edition from './Edition'
-import LogOut from './LogOut'
-import Search from './Search'
-import Arena from './Arena'
-import Pokemons from './Pokemons'
-
-
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./App.css";
+import Logo from "./Logo";
+import Favourities from "./Favourities";
+import Login from "./Login";
+import Registration from "./Registration/Registration";
+import Edition from "./Edition";
+import LogOut from "./LogOut";
+import Search from "./Search";
+import Arena from "./Arena";
+import Pokemons from "./Pokemons";
+import FormulaLogo from "./FormulaLogo";
+import Formula from "./Registration/Formula";
+import PokemonCard from "./PokemonCard";
 
 function App() {
   return (
-    <div className="App">
-      <div className='Menu'>
-        <div className="App-navigation">
-        <Logo/>
-        </div>
-        <div className="App-buttons">
-        <Favourities/>
-        <Arena/>
-        <Login/>
-        <Registration/>
-        <Edition/>
-        <LogOut/>
-        </div>
-        </div>
-      <div className="App-another">
-      <Search/>
-      </div>
-      <div className="App-pokemons">
-      <Pokemons/>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div className="App">
+              <div className="Menu">
+                <div className="App-navigation">
+                  <Logo />
+                  <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet"></link>
+                </div>
+                <div className="App-buttons">
+                  <Link to="/favourities">
+                    <Favourities />
+                  </Link>
+                  <Link to="/arena">
+                    <Arena />
+                  </Link>
+                  <Link to="/formulalogo">
+                    <Login />
+                  </Link>
+                  <Link to="/registration">
+                    <Registration />
+                  </Link>
+                  <Link to="/edition">
+                    <Edition />
+                  </Link>
+                  <Link to="/logout">
+                    <LogOut />
+                  </Link>
+                </div>
+              </div>
+              <div className="App-another">
+                <Search />
+              </div>
+              <div className="App-pokemons">
+                <Pokemons />
+              </div>
+            </div>
+          }
+        />
+        <Route path="favourities" element={<Favourities/>}></Route>
+        <Route path="arena" element={<Arena/>}></Route>
+        <Route path="formulalogo" element={<FormulaLogo/>}></Route>
+        <Route path="registration" element={<Formula/>}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
-

@@ -20,10 +20,13 @@ function PokemonCard({name, url}) {
     if(!state) return null
     return (
         <div>
+         
            <div>{name}</div>
            <div>{state.height}</div>
            <div>{state.weight}</div>
            <div>{state.base_experience}</div>
+          
+
         </div>
     )
 }

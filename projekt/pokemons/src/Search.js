@@ -36,12 +36,11 @@ const Search = () => {
   useEffect(() => {
     const fuse = new Fuse(state, options);
 
-    setPokemonName(fuse.search(query).slice(0, 6));
+    setResultList(fuse.search(query).slice(0, 6));
   }, [query]);
 
   if (picked !== null) {
-    const currentState = resultList[picked];
-    return <SearchPage name={currentState} onBack={() => setPicked(null)} />;
+    return ( <SearchPage onBack={() => setPicked(null)} /> );
   }
 
   const onKeyUp = (event) => {
@@ -71,7 +70,7 @@ const Search = () => {
     }
   };
 
-  console.log(resultList);
+ 
 
   return (
     <div className="dropdown is-active">
@@ -88,7 +87,7 @@ const Search = () => {
       {resultList.length > 0 && (
         <div className="dropdown-menu">
           <div className="dropdown-content">
-            {resultList.map(({ name, code }, index) => {
+            {resultList.map(({item: { name, code }}, index) => {
               return (
                 <a
                   key={code}
@@ -96,6 +95,7 @@ const Search = () => {
                     "is-active": selected === index,
                   })}
                   onMouseEnter={() => setSelected(index)}
+                  onClick={()=>setPicked(selected)}
                 >
                   {name}
                 </a>
