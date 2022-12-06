@@ -1,8 +1,35 @@
 import { TextField } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 
-const Search = ({setInputText, inputText}) => {
+
+const Search = () => {
+
+  const [state, setState] = useState([]);
+  const [pokemons, setPokemons] = useState("")
+  const [query, setQuery] = useState("");
+
+
+  const getCharacters = async () => {
+    try {
+      const result = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${pokemons}`
+      );
+      setState(result.data.results);
+      console.log(state);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+  useEffect(() => {
+    getCharacters();
+  }, []);
+
+  const filteredPokemons = useMemo(()=> {
+    return state?.filter(item => {
+      return item.name.toLowerCase().includes(query.toLowerCase())
+    },[state, query])
+  })
 
 
   return (
@@ -11,9 +38,14 @@ const Search = ({setInputText, inputText}) => {
         id="outlined-basic"
         label="Search"
         variant="outlined"
-        value={inputText}
-        onChange={(a) => setInputText(a.target.value)}
+        value={query}
+        onChange={(a) => setQuery(a.target.value)}
       />
+      <div>
+        {filteredPokemons?.map(item => (
+          <div>{item}</div>
+        ))}
+      </div>
     </div>
   );
 };
