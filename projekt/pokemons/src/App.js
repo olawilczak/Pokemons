@@ -7,7 +7,6 @@ import Login from "./Login";
 import Registration from "./Registration/Registration";
 import Edition from "./Edition";
 import LogOut from "./LogOut";
-import Search from "./Search";
 import Arena from "./Arena";
 import Pokemons from "./Pokemons";
 import FormulaLogo from "./FormulaLogo";
@@ -47,9 +46,6 @@ function App() {
                     <LogOut />
                   </Link>
                 </div>
-              </div>
-              <div className="App-another">
-                <Search />
               </div>
               <div className="App-pokemons">
                 <Pokemons />

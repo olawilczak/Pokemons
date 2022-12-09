@@ -6,10 +6,14 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import PokemonCard from "./PokemonCard";
-import SearchPage from "./SearchPage";
+import { TextField } from "@mui/material";
+import "./Pokemons.css";
 
 function Pokemons() {
   const [state, setState] = useState([]);
+  const [query, setQuery] = useState("");
+  const[newPokemons, setNewPokemons] = useState([])
+
   const getCharacters = async () => {
     try {
       const result = await axios.get(
@@ -25,8 +29,26 @@ function Pokemons() {
     getCharacters();
   }, []);
 
+  useEffect(() => {
+    if(state) {
+      const filteredPokemons = state?.results?.filter((item)=> 
+      item?.name?.includes(query.toLowerCase())
+      )
+      setNewPokemons(filteredPokemons)
+    }
+  },[query.length])
+
   return (
     <>
+    <div className="search">
+      <TextField
+        id="outlined-basic"
+        label="Search"
+        variant="outlined"
+        value={query}
+        onChange={(a) => setQuery(a.target.value)}
+      />
+      </div>
       <div>
         <Card>
           <CardActionArea>

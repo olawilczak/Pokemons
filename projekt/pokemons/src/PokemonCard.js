@@ -19,15 +19,14 @@ function PokemonCard({name, url}) {
  
     if(!state) return null
     return (
-        <div>
-         
-           <div>{name}</div>
-           <div>{state.height}</div>
-           <div>{state.weight}</div>
-           <div>{state.base_experience}</div>
-          
-
-        </div>
+      <div>
+      <img src={state?.sprites?.front_default} />
+      <div>{name}</div>
+      <div>{state?.height}</div>
+      <div>{state?.weight}</div>
+      <div>{state?.base_experience}</div>
+      <div>{state?.abilities && state?.abilities[0]?.ability?.name}</div>
+    </div>
     )
 }
 
