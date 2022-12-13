@@ -11,7 +11,7 @@ import Arena from "./Arena";
 import Pokemons from "./Pokemons";
 import FormulaLogo from "./FormulaLogo";
 import Formula from "./Registration/Formula";
-import PokemonCard from "./PokemonCard";
+import PokemonsDetails from "./PokemonsDetails"
 
 function App() {
   return (
@@ -48,7 +48,7 @@ function App() {
                 </div>
               </div>
               <div className="App-pokemons">
-                <Pokemons />
+                <Pokemons />  
               </div>
             </div>
           }
