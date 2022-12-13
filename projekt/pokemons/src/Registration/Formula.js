@@ -13,7 +13,7 @@ const Formula = () => {
   const loginPageStyle = {
     margin: "32px auto 37px",
     maxWidth: "530px",
-    background: "#FFDE00",
+    background: "linear-gradient(to bottom right,#024,#402)",
     padding: "30px",
     borderRadius: "10px",
     boxShadow: "0px 0px 10px 10px rgba(0,0,0,0.15)",
@@ -36,9 +36,9 @@ const Formula = () => {
     });
   return (
     <div style={loginPageStyle}>
-      <h1 className="logo">Registration Page</h1>
+      <h1 className="logo2">Registration Page</h1>
       <form onSubmit={handleSubmit} autoComplete="off">
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name" color="white">Name</label>
         <input
           value={values.name}
           onChange={handleChange}

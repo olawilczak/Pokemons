@@ -1,6 +1,6 @@
 
 .App {
-  background-color: #FFDE00;
+  background: linear-gradient(to bottom right,#024,#402);
   display: flex;
   flex-direction: column;
   
@@ -23,16 +23,24 @@ justify-content: flex-end;
 align-items: flex-start;
 }
 
+.App-pokemons {
+  background: linear-gradient(to bottom right,#024,#402);
+  padding: 0%;
+}
+
 .App-another {
 display: flex;
 justify-content: center;
 align-items: center;
+padding: 0%;
 }
 
 .Pokemons {
   display: flex;
   flex-wrap: wrap;
-  background-color: #FFDE00;
+  background: linear-gradient(to bottom right,#024,#402);
+  padding: 0%;
+  margin: 0%;
 }
 
 .card {
@@ -40,18 +48,20 @@ align-items: center;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color:#2a75bb;
-  width: 75px;
-  height: 150px;
-  margin: 35px;
+  width: 100px;
+  height: 200px;
+  margin: 20px;
   padding: 80px;
+  border-radius: 20px;
+  border: 1px solid #ffdd56;
+  margin-bottom: 2.5rem;
+  background: none;
   
 }
 
 .card-pokemons {
   display: flex;
   flex-direction: row;
-  background-color:#FFDE00;
   width: 50px;
   height: 50px;
   margin: 50px;
@@ -59,6 +69,13 @@ align-items: center;
 }
 
 .button {
+  font-family:  sans-serif;
   background-color: #2a75bb;
+    border-radius: #2a75bb;
+  border: 1px solid ;
+  font-size: medium;
+  padding: 8px;
+  margin: 1px;
+  border-radius: 10px;
 }
 

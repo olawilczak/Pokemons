@@ -9,6 +9,7 @@ import PokemonCard from "./PokemonCard";
 import { TextField } from "@mui/material";
 import "./Pokemons.css";
 
+
 function Pokemons() {
   const [state, setState] = useState([]);
   const [query, setQuery] = useState("");
@@ -56,8 +57,8 @@ function Pokemons() {
       <div>
         <Card>
           <CardActionArea>
-            <CardMedia />
-            <CardContent>
+            <CardMedia/>
+            <CardContent sx={{padding:0}}>
               <Typography
                 className="Pokemons"
                 gutterBottom

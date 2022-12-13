@@ -8,17 +8,17 @@ const LoginPage = (props) => {
   const loginPageStyle = {
     margin: "32px auto 37px",
     maxWidth: "530px",
-    background: "#FFDE00",
-    padding: "30px",
+    background: "linear-gradient(to bottom right,#024,#402)",
+    padding: "50px",
     borderRadius: "10px",
-    boxShadow: "0px 0px 10px 10px rgba(0,0,0,0.15)"
+    border: "1px solid #ffdd56",
   };
   const { touched, errors } = props;
   return(
     <React.Fragment>
       <div className="container">
         <div className="login-wrapper" style={loginPageStyle}>
-          <h1 className='logo'>Login Page</h1>
+          <h1 className='logo2'>Login Page</h1>
           <Form className="form-container">
             <div className="form-group">
               <label htmlFor="email">Email</label>
