@@ -12,7 +12,7 @@ import "./Pokemons.css";
 function Pokemons() {
   const [state, setState] = useState([]);
   const [query, setQuery] = useState("");
-  const[newPokemons, setNewPokemons] = useState([])
+  const [newPokemons, setNewPokemons] = useState([]);
 
   const getCharacters = async () => {
     try {
@@ -29,25 +29,29 @@ function Pokemons() {
     getCharacters();
   }, []);
 
+  console.log(state)
+
   useEffect(() => {
-    if(state) {
-      const filteredPokemons = state?.results?.filter((item)=> 
-      item?.name?.includes(query.toLowerCase())
-      )
-      setNewPokemons(filteredPokemons)
+    if (state) {
+      const filteredPokemons = state?.filter((item) =>
+        item.name.includes(query.toLowerCase())
+      );
+      setNewPokemons(filteredPokemons);
     }
-  },[query.length])
+  }, [query.length]);
+
+  console.log(newPokemons)
 
   return (
     <>
-    <div className="search">
-      <TextField
-        id="outlined-basic"
-        label="Search"
-        variant="outlined"
-        value={query}
-        onChange={(a) => setQuery(a.target.value)}
-      />
+      <div className="search">
+        <TextField
+          id="outlined-basic"
+          label="Search"
+          variant="outlined"
+          value={query}
+          onChange={(a) => setQuery(a.target.value)}
+        />
       </div>
       <div>
         <Card>
@@ -60,7 +64,7 @@ function Pokemons() {
                 variant="h5"
                 component="div"
               >
-                {state?.map((b) => {
+                {query.length > 0 ? newPokemons?.map((b) => {
                   return (
                     <div className="card">
                       <PokemonCard
@@ -68,7 +72,16 @@ function Pokemons() {
                         url={b.url}
                       />
                     </div>
-                  );
+                  )
+                }) : state?.map((b) => {
+                  return (
+                    <div className="card">
+                      <PokemonCard
+                        name={b.name[0].toUpperCase() + b.name.substring(1)}
+                        url={b.url}
+                      />
+                    </div>
+                  )
                 })}
               </Typography>
             </CardContent>
