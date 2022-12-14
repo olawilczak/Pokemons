@@ -1,14 +1,33 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./PokemonCard.css";
-import { FavoriteBorder } from "@mui/icons-material";
+import { FavoriteBorder, FavoriteIcon } from "@mui/icons-material";
 
 function PokemonCard({ name, url }) {
   const [state, setState] = useState([]);
-const [favorites, setFavorite] = useState("");
+  const [favorites, setFavorites] = useState([])
 
 
+  useEffect (()=> {
+    if(getArray !==0) {
+      setFavorites([...getArray])
+    }
+  })
 
+  const addFav = (props => {
+    let array = favorites;
+    let addArray = true;
+    array.map((item) => {
+      if (item === props.i) {
+        array.splice(key, 1);
+        addArray = false;
+      }
+    });
+    if (addArray) {
+      array.push(props.i);
+    }
+    setFavorites([...array]);
+  })
 
   const getCharacters = async () => {
     try {
@@ -41,13 +60,23 @@ const [favorites, setFavorite] = useState("");
         {state?.abilities && state?.abilities[0]?.ability?.name}
       </div>
       <div className="titles">Ability</div>
+      {favorites.includes(i) ? (
+        <FavoriteIcon
+          variant="plain"
+          color="neutral"
+          size="sm"
+          onClick={() => addFav({ items, i })}
+          sx={{ color: "red" }}
+        />
+      ) : (
         <FavoriteBorder
-         variant="plain" 
-         color="neutral" 
-         size="sm" 
-         sx={{color: 'red'}}
-         
-         />
+          variant="plain"
+          color="neutral"
+          size="sm"
+          onClick={() => ({ items, i })}
+          sx={{ color: "red" }}
+        />
+      )}
     </div>
   );
 }
