@@ -54,6 +54,7 @@ function Pokemons() {
           onChange={(a) => setQuery(a.target.value)}
         />
       </div>
+      <Link to="/pokemondetails">
       <div>
         <Card>
           <CardActionArea>
@@ -89,6 +90,7 @@ function Pokemons() {
           </CardActionArea>
         </Card>
       </div>
+      </Link>
     </>
   );
 }

@@ -57,6 +57,7 @@ function App() {
         <Route path="arena" element={<Arena/>}></Route>
         <Route path="formulalogo" element={<FormulaLogo/>}></Route>
         <Route path="registration" element={<Formula/>}></Route>
+        <Route path="pokemondetails" element={<PokemonsDetails/>}></Route>
       </Routes>
     </BrowserRouter>
   );
